@@ -1,3 +1,0 @@
-function queryPostSponsor(idevent, idsponsor ){
-    
-}

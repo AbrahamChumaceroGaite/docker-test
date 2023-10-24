@@ -1,12 +1,14 @@
-version: "3.9"
+version: '3.4'
 services:
-  backend:
-    build: .
-    environment:
-      NODE_ENV: development
-      DEBUG: nodejs-docker-express:*
-    ports:
-      - "8080:80"
+  linuxgsm-csgo:
+    image: gameservermanagers/gameserver:csgo
+    # image: ghcr.io/gameservermanagers/gameserver:csgo
+    container_name: csgoserver
     volumes:
-      - assets:/app/assets  
-    restart: always  
+      - /path/to/csgoserver:/data
+    ports:
+      - "27015:27015/tcp"
+      - "27015:27015/udp"
+      - "27020:27020/udp"
+      - "27005:27005/udp"
+    restart: unless-stopped
